@@ -9,6 +9,12 @@ tags: [MCP, AI Agent, LLM, Tooling, Protocol]
 
 當你希望 AI 不只「回答問題」，而是能**讀檔、查資料庫、呼叫內部 API、操作開發工具**時，最常見的痛點是：每接一個工具就要做一套客製整合，長期會變成「模型 × 工具」的爆炸式組合（N×M）難以維護。MCP（Model Context Protocol）要解決的，就是把這件事標準化：用一個通用協議，讓 AI 應用能以一致方式連接外部工具與資料來源。這也是官方常用的比喻——把 MCP 想成「AI 的 USB-C 連接埠」。[1] [5]
 
+![MCP USB-C][USB_analog]
+
+*Source: [MCP: The Flip Side of the USB-C Analogy | by Peilun Li | Towards ](https://pub.towardsai.net/mcp-the-flip-side-of-the-usb-c-analogy-af98e07bdb30)*
+
+[USB_analog]: USB_analog.png
+
 ## 一、MCP 的核心概念：把「上下文與能力」變成可插拔的服務
 
 MCP 是一個開放標準／開放規格，用來定義 **LLM 應用（Client/Host）如何與外部系統（Server）交換上下文（context）與呼叫工具（tools）**。你可以把它理解成：AI 端只需要學會「講 MCP」，就能用同一種方式去連不同的資源（檔案、DB、SaaS、內網服務）。這讓工具整合不再綁定特定模型或單一平台，而是更接近「可插拔、可替換」的基礎設施。[1] [2]
@@ -26,6 +32,12 @@ MCP 常見的角色分工是：
 * **Server**：你把「工具、資料、工作流程」封裝成 MCP Server，對外提供標準化介面（例如：讀 Git repo、查 Postgres、打 Jira/Slack、呼叫公司內部服務）。
 
 整體是一種 client-host-server 的設計，重點是讓 AI 端與外部能力之間有清楚的邊界與會話（session）管理，同時保留安全控管的空間。[7] [3]
+
+![MCP architecture][MCP_architecture]
+
+*Source: [What is MCP? | by Workato](https://www.workato.com/the-connector/what-is-mcp/?utm_source=chatgpt.com)*
+
+[MCP_architecture]: MCP_architecture.png
 
 ## 四、MCP 具體在「協議層」做了什麼：用 JSON-RPC 定義請求/回應
 
@@ -53,7 +65,9 @@ MCP 把外部系統接進 AI 的同時，也把風險帶進來：例如**提示�
 如果你遇到以下情境，MCP 通常值得考慮：
 
 第一，你的 AI 需要連很多工具/資料，而且來源會持續增加（DB、Git、內部 API、第三方 SaaS），你不想每次都重寫整合。[1] [2]
+
 第二，你希望工具能力「可重用」：同一套工具同時給 IDE、Chat、Agent workflow 使用，而不是每個產品各做一份。[7] [5]
+
 第三，你在意安全邊界：希望工具層跟模型層分離、權限與審計清楚，並能逐步擴大能力範圍，而不是一開始就把所有 API 暴露給模型。[7] [4]
 
 ## 八、小結：把 MCP 當成「AI 工具整合的底層協議」，先從可控的小場景開始

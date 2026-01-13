@@ -23,6 +23,9 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: "github", link: "https://github.com/woody1234567" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/woody1234567" },
+      { icon: "youtube", link: "https://www.youtube.com/@Woodyhsu-vlog" },
+    ],
   },
 });

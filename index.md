@@ -5,14 +5,14 @@ layout: home
 hero:
   name: "Woody's tech blog"
   text: "A place to share my learning notes"
-  tagline: My great project tagline
+  tagline: "keep close to the tech wave"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: "AI related"
+      link: /AI
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: "Web dev related"
+      link: /web_dev
 
 features:
   - title: Feature A
