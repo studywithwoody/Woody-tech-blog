@@ -10,6 +10,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "AI", link: "/AI" },
       { text: "web dev", link: "/web_dev" },
+      { text: "python", link: "/python" },
     ],
 
     sidebar: [
@@ -20,6 +21,10 @@ export default defineConfig({
       {
         text: "Web dev",
         items: [{ text: "DOM", link: "/web_dev/dom" }],
+      },
+      {
+        text: "python",
+        items: [{ text: "memory buffer", link: "/python/memory_buffer" }],
       },
     ],
 
