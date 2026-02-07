@@ -29,7 +29,9 @@ export default defineConfig({
       },
       {
         text: "Nuxt",
-        items: [{ text: "Nuxt Image", link: "/Nuxt/NuxtImage" }],
+        items: [{ text: "Nuxt Image", link: "/Nuxt/NuxtImage" },
+          { text: "Nuxt Content", link: "/Nuxt/NuxtContent" }
+        ],
       },
     ],
 
